@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوشي — لصناعة البلاستيك</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- الخط يُحمَّل بدون ما يوقّف عرض الصفحة -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap"></noscript>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="splash-active">
+
+<!-- ============================================================
+     ★★★ ملاحظة هامة ★★★
+     هذه هي صفحة الترحيب المؤقتة التي تظهر لمدة 3 ثوانٍ عند دخول الموقع.
+     عدّلوا النصوص أدناه فقط (العنوان والشرح الخاص بمدة/سرعة التوصيل):
+       - splash-title  ➜ العنوان الرئيسي
+       - splash-sub    ➜ نص شرح مدة وسرعة التوصيل (اكتبوه هنا)
+     مدة الظهور (3 ثوانٍ) مضبوطة في كود الجافاسكربت أسفل الصفحة،
+     ابحثوا عن التعليق: "مدة ظهور صفحة الترحيب" لتغييرها إذا رغبتم.
+     ============================================================ -->
+<div id="splashScreen">
+  <div class="splash-logo">
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="30" stroke="#ffffff" stroke-width="3" opacity="0.35"/>
+      <path d="M20 24c0-4 4-7 12-7s12 3 12 7v10c0 8-6 14-12 14s-12-6-12-14V24z" stroke="#9cc0e8" stroke-width="3" fill="rgba(255,255,255,0.08)"/>
+      <path d="M20 24h24" stroke="#9cc0e8" stroke-width="3"/>
+    </svg>
+  </div>
+  <!-- عدّلوا هذا العنوان -->
+  <div class="splash-title">أهلاً بكم في شركة البوشي</div>
+  <!-- عدّلوا هنا نص مدة وسرعة التوصيل -->
+  <div class="splash-sub">
+    توصيل سريع خلال 24 ساعة
+  </div>
+  <div class="splash-loader">
+    <div class="splash-loader-bar"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     الترويسة (الهيدر)
+     ============================================================ -->
+<header class="site-header">
+  <div class="delivery-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">🚚 توصيل لجميع أنحاء حماة وحمص 🚚</span>
+      <span class="marquee-item">🚚 توصيل لجميع أنحاء حماة وحمص 🚚</span>
+      <span class="marquee-item">🚚 توصيل لجميع أنحاء حماة وحمص 🚚</span>
+      <span class="marquee-item">🚚 توصيل لجميع أنحاء حماة وحمص 🚚</span>
+      <span class="marquee-item">🚚 توصيل لجميع أنحاء حماة وحمص 🚚</span>
+      <span class="marquee-item">🚚 توصيل لجميع أنحاء حماة وحمص 🚚</span>
+      <span class="marquee-item">🚚 توصيل لجميع أنحاء حماة وحمص 🚚</span>
+      <span class="marquee-item">🚚 توصيل لجميع أنحاء حماة وحمص 🚚</span>
+    </div>
+  </div>
+  <div class="header-inner">
+    <div class="logo">
+      <!-- أيقونة بسيطة لكوب زجاجي -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" ><path d="M6 3h12l-1.2 15.5A2 2 0 0 1 14.8 20H9.2a2 2 0 0 1-2-1.5L6 3Z"/><path d="M6.5 8h11"/></svg>
+      <div>
+        شركة البوشي
+        <span class="tagline"> <h3>للبلاستك</h3></span>
+      </div>
+    </div>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#home">الرئيسية</a>
+      <a href="#products">المتجر</a>
+      <a href="#footer">تواصل معنا</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
+      </div>
+      <button class="icon-btn" id="cartToggleBtn" aria-label="فتح السلة">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <!-- تعديل: زر الهامبرغر أصبح فعليًا يفتح القائمة الجانبية الجديدة بالأسفل
+           (سابقًا كان مخفيًا بالـCSS ولا يفعل شيئًا مفيدًا). -->
+      <button class="menu-toggle" id="menuToggle" aria-label="تبديل القائمة">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     قائمة الهامبرغر الجانبية (جديد بالكامل)
+     — تعديل: تشبه قائمة متجر عسق (عنوان + زر إغلاق X أعلى، ثم روابط
+     الموقع، ثم الأقسام الرئيسية تُبنى تلقائيًا من مصفوفة CATEGORIES
+     أدناه في جافاسكربت). لتغيير أي نص ثابت هنا عدّل داخل mobile-menu-list
+     مباشرة. الأقسام (الفئات) لا تُعدَّل هنا بل من مصفوفة CATEGORIES.
+     ============================================================ -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+<aside class="mobile-menu-drawer" id="mobileMenuDrawer" aria-label="القائمة الرئيسية">
+  <div class="mobile-menu-header">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="إغلاق القائمة">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <span class="mobile-menu-title">القائمة الرئيسية</span>
+  </div>
+  <nav class="mobile-menu-list">
+    <a href="#home" class="mobile-menu-link" data-close-menu>الرئيسية</a>
+    <a href="#products" class="mobile-menu-link" data-close-menu>المتجر (كل الأقسام)</a>
+    <span class="mobile-menu-section-label">الأقسام</span>
+    <!-- تعديل: تُملأ هذه القائمة تلقائيًا عبر JS (دالة buildMobileMenuCategories)
+         من نفس مصفوفة CATEGORIES المستخدمة في المتجر — لا حاجة لتعديلها يدويًا. -->
+    <div id="mobileMenuCategories"></div>
+    <a href="#footer" class="mobile-menu-link" data-close-menu>تواصل معنا</a>
+  </nav>
+</aside>
+
+<!-- ============================================================
+     القسم الرئيسي (هيرو)
+     ============================================================ -->
+<section class="hero" id="home">
+  <!-- أيقونات خلفية زخرفية بحواف فقط وشفافية خفيفة -->
+  <div class="hero-bg-icons" aria-hidden="true">
+    <!-- كوب بلاستيك مضلّع -->
+    <svg class="icon-cup-plastic" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="50" cy="14" rx="27" ry="7.5"/>
+      <path d="M23 14 L26.5 39 Q50 45.5 73.5 39 L77 14"/>
+      <path d="M26.5 39 L35 112 Q35 121 50 121 Q65 121 65 112 L73.5 39"/>
+      <line x1="34" y1="56" x2="40" y2="110"/>
+      <line x1="45" y1="61" x2="48" y2="114"/>
+      <line x1="55" y1="61" x2="52" y2="114"/>
+      <line x1="66" y1="56" x2="60" y2="110"/>
+      <ellipse cx="50" cy="121" rx="15" ry="3.5"/>
+    </svg>
+    <!-- كيس محارم -->
+    <svg class="icon-bag-tissue" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 42 Q20 22 50 22 Q80 22 78 42 L72 100 Q72 108 62 108 L38 108 Q28 108 28 100 Z"/>
+      <path d="M40 22 Q42 6 52 8 Q62 10 56 22"/>
+      <path d="M44 22 Q48 12 58 14"/>
+      <line x1="34" y1="58" x2="66" y2="58"/>
+      <line x1="34" y1="78" x2="66" y2="78"/>
+    </svg>
+    <!-- كوب قهوة كرتون -->
+    <svg class="icon-cup-coffee" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 8 Q32 8 32 20 Q32 30 50 34 Q68 30 68 20 Q68 8 50 8 Z"/>
+      <circle cx="50" cy="17" r="3"/>
+      <path d="M40 34 L38 27 M60 34 L62 27"/>
+      <ellipse cx="50" cy="36" rx="24" ry="6"/>
+      <path d="M28 36 L36 128 Q36 134 50 134 Q64 134 64 128 L72 36"/>
+      <rect x="30" y="64" width="40" height="28" rx="4"/>
+      <path d="M30 71 q5 -7 10 0 q5 7 10 0 q5 -7 10 0 q5 7 10 0"/>
+      <path d="M30 85 q5 -7 10 0 q5 7 10 0 q5 -7 10 0 q5 7 10 0"/>
+    </svg>
+    <!-- كوب بلاستيك إضافي -->
+    <svg class="icon-cup-plastic-2" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="50" cy="14" rx="27" ry="7.5"/>
+      <path d="M23 14 L26.5 39 Q50 45.5 73.5 39 L77 14"/>
+      <path d="M26.5 39 L35 112 Q35 121 50 121 Q65 121 65 112 L73.5 39"/>
+      <line x1="38" y1="58" x2="43" y2="112"/>
+      <line x1="62" y1="58" x2="57" y2="112"/>
+      <ellipse cx="50" cy="121" rx="15" ry="3.5"/>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow">صناعة  عالية الجودة</span>
+      <h1>أدوات بلاستيكية <em>لكل مائدة</em></h1>
+      <p> نختص في بيع مجموعة واسعة من المنتجات البلاستيكية والنايلون والصناعة التحويلية والورقية (فوط الأطفال وفوط نسائية ومحارم) ومنتجات اخرى متنوعة تلبي احتياجاتكم.</p>
+      <!-- <a href="#products" class="btn-primary">
+        تسوّق الآن
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M19 12H5M11 5l-7 7 7 7"/></svg>
+      </a> -->
+    </div>
+    <div class="hero-image">
+      <!-- عنصر نائب: استبدله بصورة الغلاف الخاصة بك -->
+      <img src="2002.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     المنتجات
+     ============================================================ -->
+<section class="section" id="products" style="background:var(--color-surface);">
+  <!-- أيقونات خلفية زخرفية بحواف فقط وشفافية خفيفة (كوب بلاستيك، كيس محارم، كوب قهوة كرتون) -->
+  <div class="products-bg-icons" aria-hidden="true">
+    <svg class="icon-cup-plastic" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="50" cy="14" rx="27" ry="7.5"/>
+      <path d="M23 14 L26.5 39 Q50 45.5 73.5 39 L77 14"/>
+      <path d="M26.5 39 L35 112 Q35 121 50 121 Q65 121 65 112 L73.5 39"/>
+      <line x1="34" y1="56" x2="40" y2="110"/>
+      <line x1="45" y1="61" x2="48" y2="114"/>
+      <line x1="55" y1="61" x2="52" y2="114"/>
+      <line x1="66" y1="56" x2="60" y2="110"/>
+      <ellipse cx="50" cy="121" rx="15" ry="3.5"/>
+    </svg>
+    <svg class="icon-bag-tissue" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 42 Q20 22 50 22 Q80 22 78 42 L72 100 Q72 108 62 108 L38 108 Q28 108 28 100 Z"/>
+      <path d="M40 22 Q42 6 52 8 Q62 10 56 22"/>
+      <path d="M44 22 Q48 12 58 14"/>
+      <line x1="34" y1="58" x2="66" y2="58"/>
+      <line x1="34" y1="78" x2="66" y2="78"/>
+    </svg>
+    <svg class="icon-cup-coffee" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 8 Q32 8 32 20 Q32 30 50 34 Q68 30 68 20 Q68 8 50 8 Z"/>
+      <circle cx="50" cy="17" r="3"/>
+      <path d="M40 34 L38 27 M60 34 L62 27"/>
+      <ellipse cx="50" cy="36" rx="24" ry="6"/>
+      <path d="M28 36 L36 128 Q36 134 50 134 Q64 134 64 128 L72 36"/>
+      <rect x="30" y="64" width="40" height="28" rx="4"/>
+      <path d="M30 71 q5 -7 10 0 q5 7 10 0 q5 -7 10 0 q5 7 10 0"/>
+      <path d="M30 85 q5 -7 10 0 q5 7 10 0 q5 -7 10 0 q5 7 10 0"/>
+    </svg>
+    <svg class="icon-cup-plastic-2" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="50" cy="14" rx="27" ry="7.5"/>
+      <path d="M23 14 L26.5 39 Q50 45.5 73.5 39 L77 14"/>
+      <path d="M26.5 39 L35 112 Q35 121 50 121 Q65 121 65 112 L73.5 39"/>
+      <line x1="38" y1="58" x2="43" y2="112"/>
+      <line x1="62" y1="58" x2="57" y2="112"/>
+      <ellipse cx="50" cy="121" rx="15" ry="3.5"/>
+    </svg>
+    <svg class="icon-bag-tissue-2" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 42 Q20 22 50 22 Q80 22 78 42 L72 100 Q72 108 62 108 L38 108 Q28 108 28 100 Z"/>
+      <path d="M40 22 Q42 6 52 8 Q62 10 56 22"/>
+      <line x1="34" y1="58" x2="66" y2="58"/>
+      <line x1="34" y1="78" x2="66" y2="78"/>
+    </svg>
+    <svg class="icon-cup-plastic-3" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="50" cy="14" rx="27" ry="7.5"/>
+      <path d="M23 14 L26.5 39 Q50 45.5 73.5 39 L77 14"/>
+      <path d="M26.5 39 L35 112 Q35 121 50 121 Q65 121 65 112 L73.5 39"/>
+      <line x1="34" y1="56" x2="40" y2="110"/>
+      <line x1="45" y1="61" x2="48" y2="114"/>
+      <line x1="55" y1="61" x2="52" y2="114"/>
+      <line x1="66" y1="56" x2="60" y2="110"/>
+      <ellipse cx="50" cy="121" rx="15" ry="3.5"/>
+    </svg>
+    <svg class="icon-cup-coffee-2" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 8 Q32 8 32 20 Q32 30 50 34 Q68 30 68 20 Q68 8 50 8 Z"/>
+      <circle cx="50" cy="17" r="3"/>
+      <path d="M40 34 L38 27 M60 34 L62 27"/>
+      <ellipse cx="50" cy="36" rx="24" ry="6"/>
+      <path d="M28 36 L36 128 Q36 134 50 134 Q64 134 64 128 L72 36"/>
+      <rect x="30" y="64" width="40" height="28" rx="4"/>
+      <path d="M30 71 q5 -7 10 0 q5 7 10 0 q5 -7 10 0 q5 7 10 0"/>
+      <path d="M30 85 q5 -7 10 0 q5 7 10 0 q5 -7 10 0 q5 7 10 0"/>
+    </svg>
+    <svg class="icon-cup-plastic-4" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="50" cy="14" rx="27" ry="7.5"/>
+      <path d="M23 14 L26.5 39 Q50 45.5 73.5 39 L77 14"/>
+      <path d="M26.5 39 L35 112 Q35 121 50 121 Q65 121 65 112 L73.5 39"/>
+      <line x1="38" y1="58" x2="43" y2="112"/>
+      <line x1="62" y1="58" x2="57" y2="112"/>
+      <ellipse cx="50" cy="121" rx="15" ry="3.5"/>
+    </svg>
+    <svg class="icon-bag-tissue-3" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 42 Q20 22 50 22 Q80 22 78 42 L72 100 Q72 108 62 108 L38 108 Q28 108 28 100 Z"/>
+      <path d="M40 22 Q42 6 52 8 Q62 10 56 22"/>
+      <path d="M44 22 Q48 12 58 14"/>
+      <line x1="34" y1="58" x2="66" y2="58"/>
+      <line x1="34" y1="78" x2="66" y2="78"/>
+    </svg>
+    <svg class="icon-cup-plastic-5" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="50" cy="14" rx="27" ry="7.5"/>
+      <path d="M23 14 L26.5 39 Q50 45.5 73.5 39 L77 14"/>
+      <path d="M26.5 39 L35 112 Q35 121 50 121 Q65 121 65 112 L73.5 39"/>
+      <line x1="34" y1="56" x2="40" y2="110"/>
+      <line x1="45" y1="61" x2="48" y2="114"/>
+      <line x1="55" y1="61" x2="52" y2="114"/>
+      <line x1="66" y1="56" x2="60" y2="110"/>
+      <ellipse cx="50" cy="121" rx="15" ry="3.5"/>
+    </svg>
+    <svg class="icon-cup-coffee-3" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 8 Q32 8 32 20 Q32 30 50 34 Q68 30 68 20 Q68 8 50 8 Z"/>
+      <circle cx="50" cy="17" r="3"/>
+      <path d="M40 34 L38 27 M60 34 L62 27"/>
+      <ellipse cx="50" cy="36" rx="24" ry="6"/>
+      <path d="M28 36 L36 128 Q36 134 50 134 Q64 134 64 128 L72 36"/>
+      <rect x="30" y="64" width="40" height="28" rx="4"/>
+      <path d="M30 71 q5 -7 10 0 q5 7 10 0 q5 -7 10 0 q5 7 10 0"/>
+      <path d="M30 85 q5 -7 10 0 q5 7 10 0 q5 -7 10 0 q5 7 10 0"/>
+    </svg>
+  </div>
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">مجموعتنا</span>
+      <h2>منتجات مميزة</h2>
+      <p>كل قطعة مختارة بعناية لجمالها ومتانتها  في الاستخدام اليومي.</p>
+    </div>
+
+    <nav class="shop-breadcrumb" id="shopBreadcrumb" aria-label="مسار التصفح">
+      <!-- مسار التنقّل (الأقسام / الأفرع) يُدرج عبر JS -->
+    </nav>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- شبكة الأقسام أو الأفرع أو المنتجات تُدرج عبر JS حسب المستوى الحالي -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     التذييل (الفوتر)
+     ============================================================ -->
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">بوشي</div>
+        <p>شركة البوشي للبلاستك تأسست عام 2002 في سوريا 
+حماة المنطقة الصناعية على يد مؤسسها الحاج ضرار البوشي مختصون بتجارة وصناعة جميع أنواع المنتجات البلاستيكية والنايلون والتغليف.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/boshi_plastic?igsi=YXgxMzk1OHBkY3Zs" aria-label="إنستغرام">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/1JZqGUkEQP/" aria-label="فيسبوك">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/+963996596010" aria-label="واتساب">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20l1-5.3A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+          </a>
+          <button type="button" id="shamCashBtn" class="sham-cash-btn" aria-label="شام كاش">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h12v4"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1H5a2 2 0 0 1-2-2"/><circle cx="16.5" cy="14.5" r="1" fill="currentColor"/></svg>
+          </button>
+          <!-- <a href="#" aria-label="تيك توك"> -->
+            <!-- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12a4 4 0 1 0 4 4V4c1 2 3 3 5 3"/></svg> -->
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="#home">الرئيسية</a></li>
+          <!-- تعديل: كان الرابط يشير إلى "#categories" وهو معرّف (id) غير موجود
+               في الصفحة إطلاقًا، فكان لا يفعل شيئًا (أو يسبب سلوك تمرير غريب
+               حسب المتصفح). أصبح يشير إلى قسم المتجر الفعلي #products. -->
+          <li><a href="#products">الفئات</a></li>
+          <li><a href="#products">المتجر</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>الفئات</h4>
+        <ul>
+          <li><a href="#products">أكواب قهوة</a></li>
+          <li><a href="#products">ماگات</a></li>
+          <li><a href="#products">كؤوس شاي</a></li>
+          <li><a href="#products">أدوات زجاجية للمطبخ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>تواصل معنا</h4>
+        <!-- تعديل: استبدلها ببيانات التواصل -->
+        <p>📍 حماة الصناعة</p>
+        <p>📞 +963 996596010</p>
+        <p>✉️ <a href="mailto:abobaker1994@hotmail.com" >abobaker1994@hotmail.com </a> </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="year"></span> بوشي. جميع الحقوق محفوظة.
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     سلة الطلبات الجانبية
+     ============================================================ -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>سلة مشترياتك</h3>
+    <button class="close-btn" id="closeCart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <!-- عناصر السلة تُدرج عبر JS -->
+  </div>
+  <div class="cart-footer">
+    <!-- تعديل (جديد): مربع كود الحسم — اكتب كودًا وانقر "تطبيق". إذا كان
+         الكود صحيحًا يُطبَّق الحسم فورًا على الإجمالي، وإذا كان خاطئًا أو
+         منتهي الصلاحية تظهر رسالة توضيحية تحت الحقل (شوف مصفوفة COUPONS
+         بالجافاسكربت لإضافة/تعديل الأكواد). -->
+    <div class="cart-coupon">
+      <div class="cart-coupon-row">
+        <input type="text" id="couponInput" placeholder="كود الحسم (اختياري)">
+        <button type="button" id="applyCouponBtn">تطبيق</button>
+      </div>
+      <div class="cart-coupon-msg" id="couponMsg"></div>
+    </div>
+
+    <div class="cart-summary-rows" id="cartSummaryRows">
+      <!-- تُدرج هنا عبر JS: المجموع الفرعي، وسطر الحسم إن وُجد -->
+    </div>
+
+    <div class="cart-total-row">
+      <span>الإجمالي</span>
+      <span id="cartTotal">$0.00</span>
+    </div>
+    <div class="cart-footer-buttons">
+      <button class="btn-checkout" id="checkoutBtn">إتمام الطلب</button>
+      <button class="btn-clear" id="clearCartBtn">إفراغ السلة</button>
+    </div>
+  </div>
+</aside>
+
+<!-- ============================================================
+     نافذة إتمام الطلب
+     ============================================================ -->
+<div class="modal" id="checkoutModal">
+  <div class="modal-backdrop" id="checkoutBackdrop"></div>
+  <div class="modal-box">
+    <h3>أكمل طلبك</h3>
+    <p class="modal-sub">أدخل بياناتك وسنؤكد طلبك عبر واتساب.</p>
+
+    <form id="checkoutForm">
+      <div class="form-group">
+        <label for="custName">الاسم الكامل *</label>
+        <input type="text" id="custName" required placeholder="مثال: أحمد محمد">
+      </div>
+      <div class="form-group">
+        <label for="custPhone">رقم الهاتف *</label>
+        <input type="tel" id="custPhone" required placeholder="مثال: +963 123 456 789">
+      </div>
+      <div class="form-group">
+        <label for="custAddress">عنوان التوصيل *</label>
+        <textarea id="custAddress" required placeholder="الشارع، المدينة، الشقة/الطابق، أقرب معلم..."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="custNotes">ملاحظات الطلب (اختياري)</label>
+        <textarea id="custNotes" placeholder="أي تعليمات خاصة..."></textarea>
+      </div>
+
+      <div class="checkout-summary" id="checkoutSummary">
+        <!-- ملخص الطلب يُدرج عبر JS -->
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="cancelCheckout">إلغاء</button>
+        <button type="submit" class="btn-whatsapp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20l1-5.3A8.5 8.5 0 1 1 21 11.5Z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          تأكيد الطلب
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================================
+     نافذة تفاصيل المنتج (Product Modal)
+     تُفتح عند الضغط على كرت المنتج أو صورته في الشبكة الرئيسية.
+     كل الحقول بالأسفل (الصورة/العنوان/السعر/الوصف) فارغة هنا،
+     ويتم ملؤها ديناميكيًا عبر دالة openProductModal(productId) في JS.
+     ============================================================ -->
+<div class="modal" id="productModal">
+  <!-- الضغط خارج الصندوق (على الخلفية المعتمة) يغلق النافذة، تمامًا كنافذة إتمام الطلب -->
+  <div class="modal-backdrop" id="productModalBackdrop"></div>
+
+  <div class="modal-box product-modal-box">
+    <!-- زر الإغلاق (X) -->
+    <button type="button" class="product-modal-close" id="productModalClose" aria-label="إغلاق">&times;</button>
+
+    <div class="product-modal-content">
+      <!-- عمود الصورة المكبّرة -->
+      <div class="product-modal-image-wrap">
+        <img id="productModalImg" src="" alt="">
+      </div>
+
+      <!-- عمود التفاصيل -->
+      <div class="product-modal-info">
+        <h3 id="productModalTitle"></h3>
+        <!-- السعر يتحدّث تلقائيًا (بدون/مع غطاء) عبر دالة updateModalPrice() -->
+        <div class="product-modal-price" id="productModalPrice"></div>
+        <!-- تعديل (جديد): تظهر فقط عند اختيار زر "override" (مثال: دزينة/طرد)
+             لتوضيح أن هذا السعر ثابت ولا يتغير حسب باقي المجموعات المختارة.
+             تُتحكَّم بإظهارها/إخفائها تلقائيًا من داخل updateModalPrice(). -->
+        <div class="variant-override-note" id="variantOverrideNote"></div>
+        <p class="product-modal-desc" id="productModalDesc"></p>
+
+        <!-- تعديل (جديد): id="lidOptionGroup" أضيف على هذا الـ div بالذات حتى نقدر
+             نخفيه بالكامل (القائمة + كلمة "اختر النوع") لأي منتج له خيار واحد فقط
+             (مثال: hasLidOption:false، أو منتج بدون مصفوفة variants مخصصة). -->
+        <!-- تعديل (جديد كبير): بدل بطاقتين ثابتتين (بدون غطاء/بغطاء) بالـ HTML،
+             أصبحت الأزرار تُبنى تلقائيًا عبر JS من مصفوفة "variants" الخاصة
+             بكل منتج (دالة renderModalVariantOptions بالأسفل بالجافاسكربت).
+             بهذا الشكل تقدر تضيف لأي منتج كم زر ما تريد (غطاء فقط، دزينة،
+             طرد، مقاس 9، مقاس 6، مقاس 4...)، كل زر بسعره وصورته الخاصة.
+             شوف التعليق فوق مصفوفة PRODUCTS بالجافاسكربت لشرح كيفية إضافة
+             الأزرار لأي منتج. -->
+        <div class="form-group" id="lidOptionGroup">
+          <label>اختر النوع</label>
+          <!-- تعديل (جديد): لم يعد هذا الديف يحتوي أزرارًا مباشرة، بل يُبنى
+               بداخله (عبر JS) "بلوك" منفصل لكل مجموعة خيارات (variantGroups)،
+               كل بلوك بعنوانه الخاص وصف أزراره. راجع renderModalVariantOptions()
+               بالجافاسكربت. للمنتجات القديمة (مجموعة واحدة فقط) يبقى الشكل
+               تمامًا كما كان: صف أزرار واحد بدون أي عنوان مجموعة. -->
+          <div id="lidOptionCards">
+            <!-- تُبنى الأزرار هنا تلقائيًا عبر JS -->
+          </div>
+        </div>
+
+        <!-- تعديل (جديد): تحديد الكمية داخل نافذة المنتج نفسها — زر -/+ لزيادة
+             أو إنقاص الكمية واحدة واحدة، بالإضافة لحقل رقم يقبل الكتابة اليدوية
+             مباشرة لتحديد أي رقم دفعة واحدة. -->
+        <div class="form-group" id="modalQtyGroup">
+          <label>الكمية</label>
+          <div class="qty-controls modal-qty-controls">
+            <button type="button" class="qty-btn" id="modalQtyDec">−</button>
+            <input type="number" class="qty-value qty-input" id="modalQtyInput" min="1" value="1" inputmode="numeric">
+            <button type="button" class="qty-btn" id="modalQtyInc">+</button>
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary" id="productModalAddBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+          إضافة إلى السلة
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- إشعار منبثق (توست) -->
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+  <span id="toastMsg">تمت الإضافة إلى السلة</span>
+</div>
+
+<div class="sham-modal" id="shamModal" role="dialog" aria-modal="true" aria-label="شام كاش">
+  <div class="sham-modal-box">
+    <button type="button" class="sham-modal-close" id="shamClose" aria-label="إغلاق">&times;</button>
+    <img id="shamImg" alt="شام كاش">
+    <p id="shamMissing" style="display:none">لم يتم إضافة الصورة بعد.</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
